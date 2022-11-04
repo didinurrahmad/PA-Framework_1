@@ -57,3 +57,9 @@ Route::get('/mahasiswa/create', [MahasiswaController::class, 'create'])->name('m
 Route::post('/mahasiswa/store', [MahasiswaController::class, 'store'])->name('mahasiswa.store')->middleware('auth');
 
 Route::get('/mahasiswa/show/{id}', [MahasiswaController::class, 'show'])->name('mahasiswa.show');
+
+Route::get('/mahasiswa/{id}/edit', [MahasiswaController::class, 'edit'])->name('mahasiswa.edit')->middleware('auth');
+
+Route::put('/mahasiswa/{id}', [MahasiswaController::class, 'update'])->name('mahasiswa.update')->middleware('auth');
+
+Route::delete('/mahasiswa/{id}', [MahasiswaController::class, 'destroy'])->name('mahasiswa.delete')->middleware('auth');

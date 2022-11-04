@@ -44,4 +44,31 @@ class MahasiswaController extends Controller
             'mahasiswa' => $id,
         ]);
     }
+    public function edit(Mahasiswa $id){
+        return view('mahasiswa.edit',[
+            'title' => 'Mahasiswa',
+            'mahasiswa' => $id,
+            'prodis' => Prodi::all()
+
+        ]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $mahasiswa = Mahasiswa::findOrFail($id);
+        $validateData = $request->validate([
+            'nama' => 'required|string|max:100',
+            'nim' => 'required|unique:mahasiswas|string',
+            'prodi_id' => 'required'
+        ]);
+        $mahasiswa->update($validateData);
+
+        return redirect()->route('mahasiswa.index')->with('success','Mahasiswa berhasil di update!');
+    }
+
+    public function destroy($id){
+        $mahasiswa = Mahasiswa::findOrFail($id);
+        $mahasiswa->delete();
+        return redirect()->route('mahasiswa.index')->with('success','Mahasiswa Berhasil di Delete!');
+    }
 }

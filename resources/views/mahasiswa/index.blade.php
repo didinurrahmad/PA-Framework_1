@@ -33,7 +33,12 @@ Ini adalah halaman Mahasiswa
                 <td>
 
                     <a href="/mahasiswa/show/{{ $mahasiswa->id }}" class=""><Button class="btn btn-success mb-3">Lihat</Button></a>
-
+                    <a href="/mahasiswa/{{ $mahasiswa->id }}/edit" class=""><Button class="btn btn-warning mb-3">Edit</Button></a>
+                    <form action="{{ route('mahasiswa.delete', $mahasiswa->id) }}" method="post" style="display:inline" onsubmit="confirm('apakah anda yakin ingin menghapus mahasiswa ini?')">
+                    @csrf
+                    @method('delete')
+                    <Button type="submit" class="btn btn-danger mb-3">Delete</Button>
+                </form>
                 </td>
             </tr>
             @endforeach

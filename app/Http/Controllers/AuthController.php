@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Mahasiswa;
+use App\Models\Prodi;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -40,7 +42,7 @@ class AuthController extends Controller
         ];
 
         if (Auth::Attempt($data)) {
-            return redirect('/');
+            return redirect('/mahasiswa');
         } else {
             session()->flash('error', 'Email atau Password
         
@@ -64,4 +66,7 @@ class AuthController extends Controller
         session()->flash('success', 'Berhasil Logout');
         return redirect('/login');
         }
+    
+        
+    
 }
