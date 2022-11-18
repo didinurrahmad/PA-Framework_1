@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Login Page</title>
-    <meta name="description" content="@yield('page_description', $page_description ?? '')"/>
+    <meta name="description" content="@yield('page_description', $page_description ?? '')" />
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/favicon.png') }}">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
@@ -22,7 +22,7 @@
                         <div class="row no-gutters">
                             <div class="col-xl-12">
                                 <div class="auth-form">
-                                    <h4 class="text-center mb-4">LOGIN PRAKTIKUM FRAMEWORK</h4>
+                                    <h4 class="text-center mb-4">Let's login your account!</h4>
                                     @if(session('error'))
                                     <div class="alert alert-danger">
                                         <b>Yeah!</b> {{session('error')}}
@@ -44,11 +44,14 @@
                                             <input type="password" class="form-control" placeholder="masukkan password" name="password" required>
                                         </div>
                                         <div class="text-center">
-                                            <button type="submit" class="btn btn-primary btn-block">LOGIN</button>
+                                            <button type="submit" class="btn btn-info btn-block">LOGIN</button>
                                         </div>
                                     </form>
                                     <div class="new-account mt-3">
-                                        <p>Don't have an account? <a class="text-primary" href="/register">Sign up</a></p>
+                                        <p>Don't have an account? <a class="text-info" href="/register">Sign up</a></p>
+                                    </div>
+                                    <div class="form-group">
+                                        <a href="/" class="btn btn-dark btn-block" class="btn w3-2021-willow btn-light">HOME</a>
                                     </div>
                                 </div>
                             </div>
@@ -58,6 +61,39 @@
             </div>
         </div>
     </div>
+    <!-- <script>
+        
+    </script>
+    @if(session('error'))
+    <div class="alert alert-danger">
+        <b>Yeah!</b> {{session('error')}}
+    </div>
+    @endif
+    @if(session('username'))
+
+    <div class="alert alert-danger">
+        <b>Opps!</b> {{session('username')}}
+    </div>
+    @endif
+    <form action="{{url('/action-login')}}" method="POST">
+        @csrf
+        <div class="form">
+            <div class="title">Welcome</div>
+            <div class="subtitle">Let's Login account!</div>
+
+            <div class="input-container ic1">
+                <input id="email" name="email" class="input" type="email" placeholder=" " / required>
+                <div class="cut"></div>
+                <label for="firstname" class="placeholder">Email</label>
+            </div>
+            <div class="input-container ic2">
+                <input id="password" name="password" class="input" type="password" placeholder=" " / required>
+                <div class="cut"></div>
+                <label for="lastname" class="placeholder">Password</label>
+            </div>
+           
+            <button type="submit" class="submit">submit</button>
+        </div> -->
 </body>
 
 </html>

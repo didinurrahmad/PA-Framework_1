@@ -1,29 +1,34 @@
-<div class="container">
-    <header class="d-flex flex-wrap justify-content-center py-3 mb-4border-bottom">
+<nav class="navbar navbar-expand-lg bg-light shadow fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="/">{{Auth::user()->name ?? "Home Page"}}</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/">Home</a>                
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="/clases">Clases</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="/tutors">Tutors</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="#footer1">Contact</a>
+                </li>
 
-        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+                <li class="nav-item">
+                    <a class="nav-link active" href="/peserta">Admin</a>
+                </li>
 
-            <svg class="bi me-2" width="40" height="32">
-                <use xlink:href="#bootstrap"></use>
-            </svg>
-            <span class="fs-4">{{Auth::user()->name ?? "Home Page"}}</span>
-        </a>
-        <ul class="nav nav-pills">
-            <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Home</a></li>
+            </ul>
+            <ul class="nav nav-pills">
+            <li class="nav-item"><a href="{{ Auth::user() ? '/logout' : '/login'}}" class="nav-link active" aria- current="page">{{ Auth::user() ? 'Logout' : 'Login'}}</a></li>
 
-            <li class="nav-item"><a href="#" class="nav-link">Features</a></li>
-
-            <li class="nav-item"><a href="#" class="nav-link">Pricing</a></li>
-
-            <li class="nav-item"><a href="#" class="nav-link">FAQs</a></li>
-
-            <li class="nav-item"><a href="#" class="nav-link">About</a></li>
-            <li class="nav-item"><a href="{{ Auth::user() ? '/logout'
-
-: '/login'}}" class="nav-link active" aria- current="page">{{ Auth::user() ? 'Logout' :
-
-'Login'}}</a></li>
-
-        </ul>
-    </header>
-</div>
+            </ul>
+            
+        </div>
+    </div>
+</nav>

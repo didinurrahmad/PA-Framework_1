@@ -22,7 +22,7 @@
                         <div class="row no-gutters">
                             <div class="col-xl-12">
                                 <div class="auth-form">
-                                    <h4 class="text-center mb-4">REGISTER PRAKTIKUM FRAMEWORK</h4>
+                                    <h4 class="text-center mb-4">Let's create your account!</h4>
                                     @if(session('success'))
                                     <div class="alert alert-success">
                                         <b>Yeah!</b> {{session('success')}}
@@ -37,30 +37,26 @@
                                         @csrf
                                         <div class="form-group">
                                             <label class="mb-1"><strong>Name</strong></label>
-                                            <input type="text" class="form-control" placeholder="masukkan nama"
-                                                name="name" required>
+                                            <input type="text" class="form-control" placeholder="masukkan nama" name="name" required>
                                         </div>
                                         <div class="form-group">
                                             <label class="mb-1"><strong>Email</strong></label>
-                                            <input type="email" class="form-control" placeholder="masukkan email"
-                                                name="email" required>
+                                            <input type="email" class="form-control" placeholder="masukkan email" name="email" required>
                                         </div>
                                         <div class="form-group">
                                             <label class="mb-1"><strong>Password</strong></label>
-                                            <input type="password" class="form-control" placeholder="masukkan password"
-                                                name="password" required>
+                                            <input type="password" class="form-control" placeholder="masukkan password" name="password" required>
                                         </div>
                                         <div class="form-group">
                                             <label class="mb-1"><strong>Confirmation Password</strong></label>
-                                            <input type="password" class="form-control" placeholder="masukkan password"
-                                                name="confirm_password" required>
+                                            <input type="password" class="form-control" placeholder="masukkan password" name="confirm_password" required>
                                         </div>
                                         <div class="text-center">
-                                            <button type="submit" class="btn btn-primary btn-block">Register</button>
+                                            <button type="submit" class="btn btn-info btn-block">Register</button>
                                         </div>
                                     </form>
                                     <div class="new-account mt-3">
-                                        <p>Have an account? <a class="text-primary" href="/login">Login</a></p>
+                                        <p>Have an account? <a class="text-info" href="/login">Login</a></p>
                                     </div>
                                 </div>
                             </div>

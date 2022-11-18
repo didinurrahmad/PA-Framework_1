@@ -1,7 +1,6 @@
 @extends('layouts.global')
-@section('title')
-Show Data Mahasiswa
-@endsection
+<title>Show | Slikey</title>
+<link rel="stylesheet" href="../public/css/style-custom.css">
 @section('content')
 <div class="container">
     <h3><strong>LIHAT DATA</strong></h3>
@@ -16,31 +15,50 @@ Show Data Mahasiswa
                 <h4>:</h4>
             </td>
             <td>
-                <h4>{{$mahasiswa->nama}}</h4>
+                <h4>{{$peserta->nama}}</h4>
             </td>
         </tr>
         <tr>
             <td>
-                <h4>Nim</h4>
+                <h4>Alamat</h4>
             </td>
             <td>
                 <h4>:</h4>
             </td>
             <td>
-                <h4>{{$mahasiswa->nim}}</h4>
+                <h4>{{$peserta->alamat}}</h4>
             </td>
         </tr>
         <tr>
             <td>
-                <h4>Prodi</h4>
+                <h4>NO Handphone</h4>
             </td>
             <td>
                 <h4>:</h4>
             </td>
             <td>
-                <h4>{{$mahasiswa->prodi->nama}}</h4>
+                <h4>{{$peserta->no_hp}}</h4>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h4>Kelas</h4>
+            </td>
+            <td>
+                <h4>:</h4>
+            </td>
+            <td>
+                <h4>{{$peserta->kelas->nama_kelas}}</h4>
             </td>
         </tr>
     </table>
+    <br><br><br><br>
+    <br><br><br><br>
+    <br><br><br><br>
+    <br><br><br><br>
+    <br><br><br><br>
+    <br><br><br><br>
+    <br><br><br><br>
+    <br><br><br><br>
 </div>
 @endsection

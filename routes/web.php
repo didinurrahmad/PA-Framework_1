@@ -1,9 +1,8 @@
 <?php
 
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\MahasiswaController;
-use App\Models\Mahasiswa;
-use App\Models\Prodi;
+use App\Http\Controllers\PesertaController;
+use App\Models\Peserta;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
@@ -18,20 +17,18 @@ use Illuminate\Support\Facades\Route;
  |
  */
 Route::get('/', function () {
-    return view('layouts/home', [
-    "mahasiswas" => Mahasiswa::all()
-    ]);
-})->middleware(['auth']);
+    return view('index');
+});
+
+// Route::get('/home', function () {
+//     return view('layouts/home', [
+//     "pesertas" => Peserta::all()
+//     ]);
+// })->middleware(['auth']);
 
 Route::get('/user/{nama}', function ($name) {
     return 'Halo' . $name;
 });
-
-// Route::get('/login', function () {
-//     return view('login', [
-//     'title' => 'Halaman Login'
-//     ]);
-// })->name('login');
 
 Route::get('/register', function () {
     return view('register');
@@ -50,16 +47,27 @@ Route::post('/action-login',
 Route::get('/logout',
 [AuthController::class , 'logout']);
 
-Route::get('/mahasiswa', [MahasiswaController::class, 'index'])->name('mahasiswa.index');
+Route::get('/clases', function () {
+    return view('course');
+});
 
-Route::get('/mahasiswa/create', [MahasiswaController::class, 'create'])->name('mahasiswa.create');
+Route::get('/tutors', function () {
+    return view('tutors');
+});
 
-Route::post('/mahasiswa/store', [MahasiswaController::class, 'store'])->name('mahasiswa.store')->middleware('auth');
 
-Route::get('/mahasiswa/show/{id}', [MahasiswaController::class, 'show'])->name('mahasiswa.show');
+Route::get('/peserta', [PesertaController::class, 'index'])->name('peserta.index')->middleware(['auth']);
 
-Route::get('/mahasiswa/{id}/edit', [MahasiswaController::class, 'edit'])->name('mahasiswa.edit')->middleware('auth');
+Route::get('/peserta/create', [PesertaController::class, 'create'])->name('peserta.create');
+Route::get('/peserta/form', [PesertaController::class, 'form'])->name('peserta.form');
 
-Route::put('/mahasiswa/{id}', [MahasiswaController::class, 'update'])->name('mahasiswa.update')->middleware('auth');
+Route::post('/peserta/store', [PesertaController::class, 'store'])->name('peserta.store')->middleware('auth');
+Route::post('/peserta/store1', [PesertaController::class, 'store1'])->name('peserta.store1')->middleware('auth');
 
-Route::delete('/mahasiswa/{id}', [MahasiswaController::class, 'destroy'])->name('mahasiswa.delete')->middleware('auth');
+Route::get('/peserta/show/{id}', [PesertaController::class, 'show'])->name('peserta.show');
+
+Route::get('/peserta/{id}/edit', [PesertaController::class, 'edit'])->name('peserta.edit')->middleware('auth');
+
+Route::put('/peserta/{id}', [PesertaController::class, 'update'])->name('peserta.update')->middleware('auth');
+
+Route::delete('/peserta/{id}', [PesertaController::class, 'destroy'])->name('peserta.delete')->middleware('auth');

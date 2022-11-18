@@ -1,0 +1,39 @@
+<?php
+
+namespace Database\Seeders;
+
+use Illuminate\Database\Seeder;
+
+class PesertaSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+            $peserta = [
+                [
+                    "id" => "1",
+                    "nama" => "budi",
+                    "alamat" => "JL. Rapak Mahang",
+                    "no_hp" => "082101121212",
+                    "kelas_id" => 1,
+                    
+                ],
+                [
+                    "id" => "2",
+                    "nama" => "Dewa",
+                    "alamat" => "JL. Rapak Dambutan",
+                    "no_hp" => "0821011222212",
+                    "kelas_id" => 2,
+                    
+                ],
+            ];
+
+            foreach($peserta as $pst){
+                \App\Models\Peserta::firstOrCreate($pst);
+            }
+    }
+}
